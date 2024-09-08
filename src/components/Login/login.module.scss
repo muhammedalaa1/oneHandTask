@@ -1,0 +1,95 @@
+@import "../../variables";
+
+$container-widths: (
+  sm: 750px,
+  md: 970px,
+  lg: 1270px,
+);
+
+* {
+  scroll-behavior: smooth;
+  font-family: $font-family-custom !important;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: $container-padding;
+
+  @media (min-width: $breakpoint-sm) {
+    width: map-get($container-widths, sm);
+  }
+
+  @media (min-width: $breakpoint-md) {
+    width: map-get($container-widths, md);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    width: map-get($container-widths, lg);
+  }
+}
+.background {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  min-width: 300px;
+  border-radius: 0.5rem;
+  background-color: black;
+  .title {
+    color: white;
+    font-weight: 600;
+  }
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    .inputWrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .label {
+        width: 100%;
+        margin-bottom: 5px;
+        color: white;
+      }
+    }
+
+    .input {
+      padding-inline: 1.3rem;
+      padding-block: 0.5rem;
+      border: 1px solid $primary-color;
+      outline: none;
+      border-radius: 0.2rem;
+      color: white;
+      background-color: black;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+    .login {
+      background-color: $primary-color;
+      padding-inline: 2.5rem;
+      padding-block: 0.5rem;
+      outline: none;
+      border: none;
+      border-radius: 0.2rem;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+}

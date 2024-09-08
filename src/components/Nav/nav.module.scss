@@ -1,0 +1,106 @@
+@import "../../variables";
+
+$container-widths: (
+  sm: 750px,
+  md: 970px,
+  lg: 1270px,
+);
+.background {
+  background-color: black;
+  color: white;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: $container-padding;
+
+  @media (min-width: $breakpoint-sm) {
+    width: map-get($container-widths, sm);
+  }
+
+  @media (min-width: $breakpoint-md) {
+    width: map-get($container-widths, md);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    width: map-get($container-widths, lg);
+  }
+  .navContainer {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+      h2 {
+        font-weight: 400;
+      }
+    }
+    .goTo {
+      background-color: $primary-color;
+      outline: none;
+      border: none;
+      border-radius: 0.3rem;
+      font-weight: 400;
+      padding-inline: 1.5rem;
+      padding-block: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      @media (max-width: $breakpoint-sm) {
+        display: none;
+      }
+    }
+    .menu {
+      cursor: pointer;
+      @media (min-width: $breakpoint-sm) {
+        display: none;
+      }
+    }
+  }
+}
+.mobileNav {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  background-color: black;
+  color: $primary-color;
+  height: 100vh;
+  transform: translateX(0);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  &.open {
+    transform: translateX(0);
+    opacity: 1;
+    width: 100vw;
+  }
+  .listContainer {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    align-items: center;
+    height: 100%;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .goTo {
+      background-color: $primary-color;
+      outline: none;
+      border: none;
+      border-radius: 0.3rem;
+      font-weight: 400;
+      padding-inline: 1.5rem;
+      padding-block: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  }
+}
